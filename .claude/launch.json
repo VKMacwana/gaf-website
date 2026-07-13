@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gaf-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4180", "--directory", "/Users/vkmacwana/Projects/gaf-website"],
+      "port": 4180
+    }
+  ]
+}

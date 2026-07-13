@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    { "source": "/home.html", "destination": "/", "permanent": true },
+    { "source": "/about1.html", "destination": "/about.html", "permanent": true },
+    { "source": "/our-mission.html", "destination": "/about.html", "permanent": true },
+    { "source": "/our-programs.html", "destination": "/programs.html", "permanent": true },
+    { "source": "/studentempowerment.html", "destination": "/student-empowerment.html", "permanent": true },
+    { "source": "/volunteer1.html", "destination": "/volunteer.html", "permanent": true },
+    { "source": "/news--update.html", "destination": "/news.html", "permanent": true },
+    { "source": "/contact-us.html", "destination": "/contact.html", "permanent": true },
+    { "source": "/events.html", "destination": "/news.html", "permanent": true },
+    { "source": "/home-061626-backup.html", "destination": "/", "permanent": true },
+    { "source": "/get-involved-061626-backup.html", "destination": "/get-involved.html", "permanent": true },
+    { "source": "/sponsorship-061626-backup.html", "destination": "/sponsorship.html", "permanent": true },
+    { "source": "/gift-shop-061626-backup.html", "destination": "/gift-shop.html", "permanent": true },
+    { "source": "/give-backup-7925.html", "destination": "/give.html", "permanent": true },
+    { "source": "/give-backup-6-23-2025.html", "destination": "/give.html", "permanent": true }
+  ]
+}
