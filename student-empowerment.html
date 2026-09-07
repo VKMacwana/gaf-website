@@ -25,9 +25,19 @@
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/programs.html" aria-current="page">Programs</a></li>
-      <li><a href="/get-involved.html">Get Involved</a></li>
+      <li class="nav-item has-dropdown current-section">
+        <a href="/programs.html">Programs</a>
+        <ul class="nav-dropdown">
+          <li><a href="/chicago-midwest-chapter.html">Chicago Chapter</a></li>
+          <li><a href="/india.html">India</a></li>
+        </ul>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="/about.html">About</a>
+        <ul class="nav-dropdown">
+          <li><a href="/get-involved.html">Get Involved</a></li>
+        </ul>
+      </li>
       <li><a href="/news.html">News</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a class="btn btn-gold" href="/give.html">Donate</a></li>
@@ -35,7 +45,7 @@
   </nav>
 </header>
 <main>
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-student-empowerment.png')">
   <div class="wrap">
     <h1>Student Empowerment Award</h1>
     <p>Educational enrichment &mdash; recognizing students who use education to inspire, empower, and uplift others.</p>
@@ -49,19 +59,36 @@
         <span class="eyebrow">More Than a Recognition</span>
         <h2 class="section-title">A Calling</h2>
         <p>This award is not just a recognition &mdash; it is a calling to use education as a powerful instrument to inspire, empower, and uplift others.</p>
-        <p style="margin:18px 0 30px">Know a student who leads, serves, and lifts others up? Nominations and applications for the 2026 award are open now.</p>
-        <a class="btn btn-gold" href="https://form.jotform.com/260275064438054" target="_blank" rel="noopener">Nominate / Apply for the 2026 Award</a>
+        <p style="margin:18px 0 30px">Know a student who leads, serves, and lifts others up? Nominations and applications for the 2027 award will open in February 2027.</p>
+        <a class="btn btn-gold" href="https://form.jotform.com/260275064438054" target="_blank" rel="noopener">Nominations Open February 2027</a>
+        <p style="margin-top:16px"><a class="btn btn-outline" href="https://icsana.org/" target="_blank" rel="noopener">Visit ICSANA.org</a></p>
       </div>
-      <img src="/assets/award-2025.jpg" alt="2025 Student Empowerment Award recipients" style="border-radius:var(--radius);box-shadow:var(--shadow)">
+      <iframe src="https://www.youtube.com/embed/oToHadjpEKw" title="Student Empowerment Award alumni testimonial" style="max-width:360px;width:100%;aspect-ratio:9/16;border:0;border-radius:var(--radius);box-shadow:var(--shadow);margin:0 auto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="wrap center">
+    <img src="/assets/award-2026-committee.png" alt="Student Empowerment Award Committee 2026" style="max-width:600px;width:100%;border-radius:var(--radius);box-shadow:var(--shadow)">
   </div>
 </section>
 
 <section style="background:var(--bg-soft)">
   <div class="wrap center">
     <span class="eyebrow">Previous Years</span>
+    <h2 class="section-title">2026 Recipients</h2>
+    <p class="section-lead" style="margin:0 auto 34px">Congratulations to our 2026 award recipients &mdash; hear from one of our alumni about what the award has meant to him.</p>
+    <img src="/assets/award-2026-winners.png" alt="Recipients of the Guardian Angels Student Empowerment Award 2026" style="max-width:600px;width:100%;border-radius:var(--radius);box-shadow:var(--shadow)">
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <span class="eyebrow">Previous Years</span>
     <h2 class="section-title">2025 Recipients</h2>
-    <p class="section-lead" style="margin:0 auto">Congratulations to our 2025 award recipients &mdash; and hear from our alumni about what the award has meant to them on our <a href="/news.html">News &amp; Updates</a> page.</p>
+    <p class="section-lead" style="margin:0 auto 34px">Congratulations to our 2025 award recipients.</p>
+    <img src="/assets/award-2025-recipients.png" alt="Recipients of the Guardian Angels Student Empowerment Award 2025" style="max-width:600px;width:100%;border-radius:var(--radius);box-shadow:var(--shadow)">
   </div>
 </section>
 
@@ -69,7 +96,8 @@
   <div class="wrap">
     <h2>Your Gift, Their Future</h2>
     <p>Sponsor the Student Empowerment Award and invest directly in the next generation of leaders.</p>
-    <a class="btn btn-gold" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIz" target="_blank" rel="noopener">Sponsor Today</a>
+    <a class="btn btn-gold" href="https://secure.myvanco.com/L-ZKFQ/home" target="_blank" rel="noopener">Sponsor Today</a>
+    <a class="btn btn-outline-light" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-166W8" target="_blank" rel="noopener" style="margin-left:14px">Support Today</a>
   </div>
 </section>
 </main>
@@ -81,7 +109,8 @@
         <p>A Christ-centered 501(c)(3) nonprofit extending love and care to those in need &mdash; advancing environmental stewardship, empowering women, and enriching education.</p>
         <div class="footer-seals">
           <img src="/assets/seal-charitynav.png" alt="Charity Navigator">
-          <img src="/assets/seal-candid.png" alt="Candid Seal of Transparency">
+          <img src="/assets/seal-candid.png" alt="Candid Bronze Seal of Transparency 2024">
+          <img src="/assets/seal-candid-platinum.png" alt="Candid Platinum Seal of Transparency 2026">
         </div>
       </div>
       <div>

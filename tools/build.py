@@ -10,17 +10,27 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES_DIR = ROOT / "tools" / "pages"
 
 LINKS = {
-    "GIVE_MAIN": "https://give.guardianangels.foundation/secure/cause_pdetails/MjMzODc0",
-    "GIVE_KIT": "https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIx",
-    "GIVE_CHILD": "https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTE4",
-    "GIVE_TREE": "https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIw",
-    "GIVE_STUDENT": "https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIz",
-    "GIFT_BOOK": "https://gift.guardianangels.foundation/secure/cause_pdetails/MjQzNTE1",
-    "SPONSOR": "https://sponsor.guardianangels.foundation/secure/cause_pdetails/MjQzNTM5",
-    "VOLUNTEER_APP": "https://volunteer.guardianangels.foundation/",
+    "GIVE_MAIN": "https://secure.myvanco.com/L-ZKFQ/home",
+    "GIVE_KIT": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXM",
+    "GIVE_CHILD": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXC",
+    "GIVE_TREE": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14QKR",
+    "GIVE_REFUGEE_EMERGENCY": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXB",
+    "GIVE_STUDENT": "https://secure.myvanco.com/L-ZKFQ/home",
+    "GIFT_BOOK": "https://secure.myvanco.com/L-ZKFQ/home",
+    "PURCHASE_BOOK": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXQ",
+    "ANCHOR_POINT": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16JA9",
+    "ANCHOR_OTHERS": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16JA8",
+    "ANCHOR_FULL_SET": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16JAA",
+    "SPONSOR": "https://secure.myvanco.com/L-ZKFQ/home",
     "AWARD_FORM": "https://form.jotform.com/260275064438054",
     "GOFUNDME": "https://www.gofundme.com/charity/guardian-angels-foundation-inc/donate",
+    "PAYPAL": "https://www.paypal.com/US/fundraiser/charity/5056846",
+    "VENMO": "https://account.venmo.com/u/GuardianAngels-Foundation",
     "CRICKET": "https://www.americaplayscricket.org",
+    "CRICKET_REGISTRATION": "https://secure.myvanco.com/L-ZKFQ/campaign/C-166W5",
+    "SUPPORT_STUDENT": "https://secure.myvanco.com/L-ZKFQ/campaign/C-166W8",
+    "ICSANA": "https://icsana.org/",
+    "CHICAGO_DONATE": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16JAH",
     "EMAIL": "help@guardianangels.foundation",
     "PHONE_TEL": "+12155563604",
     "PHONE_FMT": "+1 (215) 556-3604",
@@ -50,15 +60,25 @@ PAGES = {
              "Latest news and updates from Guardian Angels Foundation.", "news"),
     "contact": ("contact.html", "Contact Us — Guardian Angels Foundation",
                 "Get in touch with Guardian Angels Foundation — volunteer, donate, partner, or ask for help.", "contact"),
+    "chicago-midwest-chapter": ("chicago-midwest-chapter.html", "Chicago-Midwest Chapter — Guardian Angels Foundation",
+                "GAF Chicago Midwest Chapter — serving with compassion, empowering communities, and creating sustainable impact.", "chicago"),
+    "india": ("india.html", "India — Guardian Angels Foundation",
+              "Ongoing programs and initiatives across India, led by our Community Director, Mrs. Foram Christian.", "india"),
+    "chicago-member-form": ("chicago-member-form.html", "Chicago-Midwest Chapter Membership Form — Guardian Angels Foundation",
+                "Apply for membership with the Guardian Angels Foundation Chicago Midwest Chapter, or get in touch.", "chicago"),
 }
 
 NAV = [
-    ("home", "/", "Home"),
-    ("about", "/about.html", "About"),
-    ("programs", "/programs.html", "Programs"),
-    ("involved", "/get-involved.html", "Get Involved"),
-    ("news", "/news.html", "News"),
-    ("contact", "/contact.html", "Contact"),
+    ("home", "/", "Home", None),
+    ("programs", "/programs.html", "Programs", [
+        ("chicago", "/chicago-midwest-chapter.html", "Chicago Chapter"),
+        ("india", "/india.html", "India"),
+    ]),
+    ("about", "/about.html", "About", [
+        ("involved", "/get-involved.html", "Get Involved"),
+    ]),
+    ("news", "/news.html", "News", None),
+    ("contact", "/contact.html", "Contact", None),
 ]
 
 HEAD = """<!DOCTYPE html>
@@ -104,7 +124,8 @@ FOOT = """</main>
         <p>A Christ-centered 501(c)(3) nonprofit extending love and care to those in need &mdash; advancing environmental stewardship, empowering women, and enriching education.</p>
         <div class="footer-seals">
           <img src="/assets/seal-charitynav.png" alt="Charity Navigator">
-          <img src="/assets/seal-candid.png" alt="Candid Seal of Transparency">
+          <img src="/assets/seal-candid.png" alt="Candid Bronze Seal of Transparency 2024">
+          <img src="/assets/seal-candid-platinum.png" alt="Candid Platinum Seal of Transparency 2026">
         </div>
       </div>
       <div>
@@ -159,9 +180,27 @@ FOOT = """</main>
 
 def navlinks(active):
     out = []
-    for slug, href, label in NAV:
-        cur = ' aria-current="page"' if slug == active else ""
-        out.append(f'      <li><a href="{href}"{cur}>{label}</a></li>')
+    for slug, href, label, children in NAV:
+        if children:
+            child_slugs = [c[0] for c in children]
+            section_active = active == slug or active in child_slugs
+            classes = "nav-item has-dropdown" + (" current-section" if section_active else "")
+            child_items = []
+            for cslug, chref, clabel in children:
+                ccur = ' aria-current="page"' if active == cslug else ""
+                child_items.append(f'          <li><a href="{chref}"{ccur}>{clabel}</a></li>')
+            child_html = "\n".join(child_items)
+            out.append(
+                f'      <li class="{classes}">\n'
+                f'        <a href="{href}">{label}</a>\n'
+                f'        <ul class="nav-dropdown">\n'
+                f'{child_html}\n'
+                f'        </ul>\n'
+                f'      </li>'
+            )
+        else:
+            cur = ' aria-current="page"' if slug == active else ""
+            out.append(f'      <li><a href="{href}"{cur}>{label}</a></li>')
     return "\n".join(out)
 
 def main():

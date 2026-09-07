@@ -25,9 +25,19 @@
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/programs.html">Programs</a></li>
-      <li><a href="/get-involved.html" aria-current="page">Get Involved</a></li>
+      <li class="nav-item has-dropdown">
+        <a href="/programs.html">Programs</a>
+        <ul class="nav-dropdown">
+          <li><a href="/chicago-midwest-chapter.html">Chicago Chapter</a></li>
+          <li><a href="/india.html">India</a></li>
+        </ul>
+      </li>
+      <li class="nav-item has-dropdown current-section">
+        <a href="/about.html">About</a>
+        <ul class="nav-dropdown">
+          <li><a href="/get-involved.html" aria-current="page">Get Involved</a></li>
+        </ul>
+      </li>
       <li><a href="/news.html">News</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a class="btn btn-gold" href="/give.html">Donate</a></li>
@@ -35,7 +45,7 @@
   </nav>
 </header>
 <main>
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-shared.jpg')">
   <div class="wrap">
     <h1>Corporate Sponsorship</h1>
     <p>Your generous support of the people in our local area makes a difference every day. By investing in them, you are investing in the future.</p>
@@ -119,7 +129,7 @@
       <div class="card tier" style="justify-content:center"><div class="card-body center" style="justify-content:center">
         <h3>Ready to Sponsor?</h3>
         <p>Join the companies investing in our community&rsquo;s future.</p>
-        <a class="btn btn-gold" href="https://sponsor.guardianangels.foundation/secure/cause_pdetails/MjQzNTM5" target="_blank" rel="noopener" style="align-self:center">Be a Sponsor Today</a>
+        <a class="btn btn-gold" href="https://secure.myvanco.com/L-ZKFQ/home" target="_blank" rel="noopener" style="align-self:center">Be a Sponsor Today</a>
       </div></div>
     </div>
   </div>
@@ -129,7 +139,7 @@
   <div class="wrap">
     <h2>No Sponsorship &mdash; I&rsquo;d Just Like to Donate</h2>
     <p>Every gift counts, whatever the size.</p>
-    <a class="btn btn-gold" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjMzODc0" target="_blank" rel="noopener">Donate</a>
+    <a class="btn btn-gold" href="https://secure.myvanco.com/L-ZKFQ/home" target="_blank" rel="noopener">Donate</a>
   </div>
 </section>
 </main>
@@ -141,7 +151,8 @@
         <p>A Christ-centered 501(c)(3) nonprofit extending love and care to those in need &mdash; advancing environmental stewardship, empowering women, and enriching education.</p>
         <div class="footer-seals">
           <img src="/assets/seal-charitynav.png" alt="Charity Navigator">
-          <img src="/assets/seal-candid.png" alt="Candid Seal of Transparency">
+          <img src="/assets/seal-candid.png" alt="Candid Bronze Seal of Transparency 2024">
+          <img src="/assets/seal-candid-platinum.png" alt="Candid Platinum Seal of Transparency 2026">
         </div>
       </div>
       <div>

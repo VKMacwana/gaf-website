@@ -1,4 +1,4 @@
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-shared.jpg')">
   <div class="wrap">
     <h1>Make a Donation</h1>
     <p>Your donation can change someone&rsquo;s life.</p>
@@ -19,7 +19,19 @@
       <span class="eyebrow">Suggestions</span>
       <h2 class="section-title">What Your Gift Can Do</h2>
     </div>
-    <div class="grid-2" style="margin-top:44px;max-width:900px;margin-left:auto;margin-right:auto">
+    <div class="grid-3" style="margin-top:44px;max-width:1020px;margin-left:auto;margin-right:auto">
+      <div class="card tier"><div class="card-body">
+        <div class="price">$25/month</div>
+        <p>Delivers a hygiene kit that restores dignity and confidence.</p>
+      </div></div>
+      <div class="card tier"><div class="card-body">
+        <div class="price">$50</div>
+        <p>Gives a youth the joy of playing cricket and belonging to a team.</p>
+      </div></div>
+      <div class="card tier"><div class="card-body">
+        <div class="price">$120</div>
+        <p>Places 10 <em>Anchor Start / Deep / Beyond / Life</em> books into the hands of a church, school, or group.</p>
+      </div></div>
       <div class="card tier"><div class="card-body">
         <div class="price">$300</div>
         <p>Empowers one woman with hygiene supplies and dignity for a full year.</p>
@@ -30,43 +42,54 @@
       </div></div>
       <div class="card tier"><div class="card-body">
         <div class="price">$500</div>
-        <p>Be a sponsor for student empowerment.</p>
-      </div></div>
-      <div class="card tier"><div class="card-body">
-        <div class="price">$1,000</div>
-        <p>Sponsors 500 copies of <em>Purush ni Parakh</em> or <em>Stree ni Parakh</em>.</p>
+        <p>Honors one Student Empowerment Award recipient for using education to inspire others.</p>
       </div></div>
     </div>
-    <p class="center" style="margin-top:40px"><a class="btn btn-gold" href="{{GIVE_MAIN}}" target="_blank" rel="noopener" style="font-size:17px;padding:16px 40px">Donate Here</a></p>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow">Other Ways to Give</span>
-      <h2 class="section-title">Choose What Works for You</h2>
+    <div class="center" style="margin-top:60px">
+      <span class="eyebrow">Pick What Works for You</span>
+      <h2 class="section-title">Choose How to Give</h2>
     </div>
     <div class="grid-3" style="margin-top:44px">
       <div class="card contact-card">
-        <img src="/assets/pay-paypal.png" alt="PayPal" style="height:56px;margin:0 auto 14px;width:auto">
-        <h3>PayPal Giving Fund</h3>
-        <p>Donate to PayPal Giving Fund &mdash; Guardian Angels Foundation<br><strong>@GuardianAngels-Foundation</strong></p>
+        <img src="/assets/icon-creditcard.png" alt="Credit or Debit Card" style="height:56px;margin:0 auto 14px;width:auto">
+        <h3>Credit / Debit Card</h3>
+        <p>Donate by credit card &mdash; stock and crypto gifts also accepted.</p>
+        <p><a class="btn btn-gold" href="{{GIVE_MAIN}}" target="_blank" rel="noopener" style="padding:10px 22px;font-size:14px">Donate Here</a></p>
       </div>
       <div class="card contact-card">
-        <img src="/assets/pay-zelle.png" alt="Zelle" style="height:56px;margin:0 auto 14px;width:auto">
+        <div style="display:inline-flex;align-items:center;justify-content:center;margin:0 auto 14px;background:#0070ba;border-radius:10px;padding:12px 22px">
+          <img src="/assets/pay-paypal.png" alt="PayPal" style="height:30px;width:auto;max-width:none;display:block">
+        </div>
+        <h3>PayPal Giving Fund</h3>
+        <p>Donate to PayPal Giving Fund &mdash; Guardian Angels Foundation</p>
+        <p><a class="btn btn-outline" href="{{PAYPAL}}" target="_blank" rel="noopener" style="padding:10px 22px;font-size:14px">Donate on PayPal</a></p>
+      </div>
+      <div class="card contact-card">
+        <div style="display:inline-flex;align-items:center;justify-content:center;margin:0 auto 14px;background:#008cff;border-radius:10px;padding:12px 22px">
+          <img src="/assets/pay-venmo.png" alt="Venmo" style="height:30px;width:auto;max-width:none;display:block">
+        </div>
+        <h3>Venmo</h3>
+        <p>Send via Venmo<br><strong>@GuardianAngels-Foundation</strong></p>
+        <p><a class="btn btn-outline" href="{{VENMO}}" target="_blank" rel="noopener" style="padding:10px 22px;font-size:14px">Donate on Venmo</a></p>
+      </div>
+      <div class="card contact-card">
+        <div style="display:inline-flex;align-items:center;justify-content:center;margin:0 auto 14px;background:#6d1ed4;border-radius:10px;padding:12px 22px">
+          <img src="/assets/pay-zelle.png" alt="Zelle" style="height:30px;width:auto;max-width:none;display:block">
+        </div>
         <h3>Zelle</h3>
         <p>Send via phone number<br><strong><a href="tel:{{PHONE_TEL}}">{{PHONE_FMT}}</a></strong></p>
       </div>
       <div class="card contact-card">
-        <img src="/assets/pay-gofundme.png" alt="GoFundMe" style="height:56px;margin:0 auto 14px;width:auto">
+        <div style="display:inline-flex;align-items:center;justify-content:center;margin:0 auto 14px;background:#00b964;border-radius:10px;padding:12px 22px">
+          <img src="/assets/pay-gofundme.png" alt="GoFundMe" style="height:30px;width:auto;max-width:none;display:block">
+        </div>
         <h3>GoFundMe</h3>
         <p>Give through our verified charity page.</p>
         <p><a class="btn btn-outline" href="{{GOFUNDME}}" target="_blank" rel="noopener" style="padding:10px 22px;font-size:14px">Donate on GoFundMe</a></p>
       </div>
-    </div>
-    <div class="card" style="margin-top:28px">
-      <div class="card-body center">
+      <div class="card contact-card">
+        <img src="/assets/icon-mail.png" alt="Mail a Check" style="height:56px;margin:0 auto 14px;width:auto">
         <h3>Mail a Check</h3>
         <p>Guardian Angels Foundation<br>405 West Maple Ave, Morrisville, PA 19067</p>
       </div>

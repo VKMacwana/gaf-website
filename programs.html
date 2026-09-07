@@ -25,9 +25,19 @@
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/programs.html" aria-current="page">Programs</a></li>
-      <li><a href="/get-involved.html">Get Involved</a></li>
+      <li class="nav-item has-dropdown current-section">
+        <a href="/programs.html">Programs</a>
+        <ul class="nav-dropdown">
+          <li><a href="/chicago-midwest-chapter.html">Chicago Chapter</a></li>
+          <li><a href="/india.html">India</a></li>
+        </ul>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="/about.html">About</a>
+        <ul class="nav-dropdown">
+          <li><a href="/get-involved.html">Get Involved</a></li>
+        </ul>
+      </li>
       <li><a href="/news.html">News</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a class="btn btn-gold" href="/give.html">Donate</a></li>
@@ -35,7 +45,7 @@
   </nav>
 </header>
 <main>
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-shared.jpg')">
   <div class="wrap">
     <h1>Our Programs</h1>
     <p>&ldquo;Serving with Compassion. Empowering with Purpose.&rdquo;</p>
@@ -52,7 +62,7 @@
         <p>Our focus is to uplift women and children by providing hygiene education, essential resources, and practical skills training. Over <strong>3,500 women worldwide</strong> have received our hygiene kits.</p>
         <span class="price-tag">Sponsor a Kit &mdash; $25/month or $300/year (less than $1 a day)</span>
         <p>Your support helps restore dignity, improve health, and open doors to new opportunities.</p>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIx" target="_blank" rel="noopener">Sponsor a Kit</a>
+        <a class="btn btn-blue" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXM" target="_blank" rel="noopener">Sponsor a Kit</a>
       </div>
     </div>
 
@@ -62,7 +72,7 @@
         <h3>Sponsor-A-Child Program</h3>
         <p>Support underprivileged children with education, nutrition, and wellbeing. Help us lift a generation through love and learning.</p>
         <span class="price-tag">$360/year or $30/month (less than $1/day) changes a child&rsquo;s life</span>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTE4" target="_blank" rel="noopener">Sponsor-A-Child</a>
+        <a class="btn btn-blue" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXC" target="_blank" rel="noopener">Sponsor-A-Child</a>
       </div>
     </div>
 
@@ -99,6 +109,7 @@
         <h3>Youth Cricket &amp; Wellness Program</h3>
         <p>An opportunity to empower youth, promote health, and strengthen community bonds in Morrisville and Bucks County &mdash; providing accessible, structured, and impactful programming for <strong>200 youth annually</strong>, helping them grow both on and off the field.</p>
         <a class="btn btn-blue" href="https://www.americaplayscricket.org" target="_blank" rel="noopener">Visit AmericaPlaysCricket.org</a>
+        <a class="btn btn-outline" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-166W5" target="_blank" rel="noopener" style="margin-left:10px">Pay Registration Fee</a>
       </div>
     </div>
 
@@ -115,13 +126,17 @@
       </div>
     </div>
 
-    <div class="program-row" id="books">
-      <img src="/assets/prog-book.jpg" alt="The Measure of a Man in Gujarati">
+    <div class="program-row" id="anchor-series">
+      <img src="/assets/prog-anchor-series.png" alt="The Anchor Series devotional books">
       <div>
-        <h3>Book Translation Project &mdash; The Measure of a Man</h3>
-        <p>Translated into Gujarati by Rajubhai Christi, this classic book by Dr. Gene A. Getz outlines 20 biblical principles of godly manhood. <strong>100% of proceeds benefit charitable programs.</strong></p>
-        <span class="price-tag">$10 (includes shipping)</span>
-        <a class="btn btn-blue" href="https://gift.guardianangels.foundation/secure/cause_pdetails/MjQzNTE1" target="_blank" rel="noopener">Purchase a Book Today</a>
+        <h3>The Anchor Series &mdash; Helping the Next Generation</h3>
+        <p>A five-book devotional series by Rev. VK Macwana &mdash; Anchor Start, Anchor Deep, Anchor Point, Anchor Beyond, and Anchor Life &mdash; written for readers from middle school through young professionals. <strong>Signed and personalized. Every copy funds a student.</strong></p>
+        <p>A book for you. An opportunity for a student. Proceeds support GAF&rsquo;s Student Empowerment Program.</p>
+        <div>
+          <a class="btn btn-blue" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-16JA9" target="_blank" rel="noopener">($20) Anchor Point &mdash; 365-Day Devotional</a>
+          <a class="btn btn-outline" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-16JA8" target="_blank" rel="noopener" style="margin-left:10px">($15) Anchor Start, Deep, Beyond &amp; Life</a>
+          <a class="btn btn-outline" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-16JAA" target="_blank" rel="noopener" style="margin-left:10px">($65) Full Set of 5 Books</a>
+        </div>
       </div>
     </div>
 
@@ -132,7 +147,7 @@
         <p>We are committed to environmental restoration and economic sustainability through global and local tree planting efforts. In Morrisville, Pennsylvania, we partner with the Morrisville School Board and Morrisville Borough to plant trees at Morrisville Elementary School, Morrisville High School, and Morrisville Dog Park.</p>
         <span class="price-tag">Sponsor a Tree for $25</span>
         <p>Together, we are nurturing the earth while building community pride.</p>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjQzNTIw" target="_blank" rel="noopener">Sponsor a Tree</a>
+        <a class="btn btn-blue" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-14QKR" target="_blank" rel="noopener">Sponsor a Tree</a>
       </div>
     </div>
 
@@ -142,7 +157,7 @@
         <h3>Supporting Refugee &amp; Asylum-Seeking Women</h3>
         <p>In partnership with Women&rsquo;s Way and Jewish Family Service of Silicon Valley, we provide menstrual kits to refugee and asylum-seeking women &mdash; helping meet critical hygiene needs and restoring dignity during difficult transitions.</p>
         <p>Thank you for helping us support women rebuilding their lives with hope and care.</p>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjMzODc0" target="_blank" rel="noopener">Give Today</a>
+        <a class="btn btn-blue" href="/give.html">Give Today</a>
       </div>
     </div>
 
@@ -151,7 +166,7 @@
       <div>
         <h3>Emergency Outreach &amp; Crisis Relief</h3>
         <p>Rapid assistance for individuals and families facing fires, homelessness, or extreme hardship &mdash; bringing hope in life&rsquo;s toughest moments.</p>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjMzODc0" target="_blank" rel="noopener">Make a Donation</a>
+        <a class="btn btn-blue" href="/give.html">Make a Donation</a>
       </div>
     </div>
 
@@ -160,7 +175,30 @@
       <div>
         <h3>Companionship &amp; Comfort Care</h3>
         <p>Offering prayer, presence, and support to those experiencing illness, grief, or isolation &mdash; reminding them they are not alone.</p>
-        <a class="btn btn-blue" href="https://give.guardianangels.foundation/secure/cause_pdetails/MjMzODc0" target="_blank" rel="noopener">Support Today</a>
+        <a class="btn btn-blue" href="/give.html">Support Today</a>
+      </div>
+    </div>
+
+    <div class="program-row flip" id="books">
+      <img src="/assets/prog-book-translation.png" alt="Purush ni Parakh and Stree ni Parakh — The Measure of a Man and The Measure of a Woman, translated into Gujarati">
+      <div>
+        <h3>Book Translation Project &mdash; Purush ni Parakh &amp; Stree ni Parakh</h3>
+        <p>&#10024; Now available in Gujarati! &#10024;</p>
+        <p>The global bestseller &ldquo;The Measure of a Woman&rdquo; by Gene &amp; Elaine Getz is now translated as &ldquo;Stree ni Parakh&rdquo;, and &ldquo;The Measure of a Man&rdquo; is translated as &ldquo;Purush ni Parakh&rdquo; by Rajubhai &amp; Ritaben Christi.</p>
+        <p>&#128214; About the Books<br>&ldquo;Purush ni Parakh&rdquo; and &ldquo;Stree ni Parakh&rdquo; are timeless guides rooted in Scripture. They highlight that true manhood and womanhood are not defined by strength, wealth, or position&mdash;but by Christ-centered character.</p>
+        <span class="price-tag">&#128176; $15 per book ($10 book + $5 S&amp;H)</span>
+        <a class="btn btn-blue" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXQ" target="_blank" rel="noopener">Purchase a Book Today</a>
+      </div>
+    </div>
+
+    <div class="program-row" id="student-empowerment">
+      <img src="/assets/award-2026-winners.png" alt="Recipients of the Guardian Angels Student Empowerment Award 2026">
+      <div>
+        <h3>Student Empowerment Award</h3>
+        <p>Recognizing students who use education as a powerful instrument to inspire, empower, and uplift others. Nominations and applications for the 2027 award will open in February 2027.</p>
+        <a class="btn btn-blue" href="/student-empowerment.html">Learn More</a>
+        <a class="btn btn-outline" href="https://secure.myvanco.com/L-ZKFQ/campaign/C-166W8" target="_blank" rel="noopener" style="margin-left:10px">Support Today</a>
+        <a class="btn btn-outline" href="https://icsana.org/" target="_blank" rel="noopener" style="margin-left:10px">Visit ICSANA.org</a>
       </div>
     </div>
 
@@ -183,7 +221,8 @@
         <p>A Christ-centered 501(c)(3) nonprofit extending love and care to those in need &mdash; advancing environmental stewardship, empowering women, and enriching education.</p>
         <div class="footer-seals">
           <img src="/assets/seal-charitynav.png" alt="Charity Navigator">
-          <img src="/assets/seal-candid.png" alt="Candid Seal of Transparency">
+          <img src="/assets/seal-candid.png" alt="Candid Bronze Seal of Transparency 2024">
+          <img src="/assets/seal-candid-platinum.png" alt="Candid Platinum Seal of Transparency 2026">
         </div>
       </div>
       <div>

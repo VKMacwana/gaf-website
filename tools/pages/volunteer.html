@@ -1,4 +1,4 @@
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-volunteer.jpg')">
   <div class="wrap">
     <h1>Volunteer</h1>
     <p>Help build a brighter tomorrow.</p>
@@ -13,10 +13,181 @@
         <span class="eyebrow">There&rsquo;s Always a Way to Serve</span>
         <h2 class="section-title">Your Time Makes a Real Difference</h2>
         <p>From mentoring youth to community outreach, event logistics, tree plantings, and supply drives &mdash; your willingness to give your time and energy truly makes an impact.</p>
-        <p style="margin:14px 0 26px">Applying takes just a few minutes through our volunteer portal.</p>
-        <a class="btn btn-gold" href="{{VOLUNTEER_APP}}" target="_blank" rel="noopener" style="font-size:16px;padding:15px 36px">Click to Apply</a>
+        <p style="margin:14px 0 26px">Fill out the application below &mdash; it takes just a few minutes.</p>
+        <a class="btn btn-gold" href="#apply" style="font-size:16px;padding:15px 36px">Apply Now</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="apply" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <span class="eyebrow">Volunteer Application</span>
+      <h2 class="section-title">Tell Us About Yourself</h2>
+      <p class="section-lead" style="margin:0 auto">Fields marked <em>*</em> are required.</p>
+    </div>
+
+    <p class="vform-success" id="vform-success">Thank you &mdash; your volunteer application has been submitted. We&rsquo;ll be in touch soon!</p>
+
+    <form class="vform" id="volunteer-form" method="post" target="vform-sink" novalidate
+          action="https://submit.jotform.com/submit/250514470923150">
+
+      <input type="hidden" name="formID" value="250514470923150">
+      <input type="hidden" name="simple_spc" value="250514470923150">
+      <input type="hidden" name="website" value="">
+
+      <div class="vform-field">
+        <label>Select Volunteer Role(s):</label>
+        <div class="vform-days">
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="APC Cricket Coaching Season Volunteer"> APC Cricket Coaching Season Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Content Writer"> Content Writer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Environmental Volunteer"> Environmental Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Event Volunteer"> Event Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="General Volunteer"> General Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Grant Writer"> Grant Writer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Graphic Designer"> Graphic Designer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Interpreter/Translator"> Interpreter/Translator</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Legal Advisor"> Legal Advisor</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Medical Volunteer"> Medical Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Mentor or Tutor"> Mentor or Tutor</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Outreach Volunteer"> Outreach Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Social Media Volunteer"> Social Media Volunteer</label>
+          <label><input type="checkbox" name="q46_selectVolunteer[]" value="Website IT Support"> Website IT Support</label>
+        </div>
+      </div>
+
+      <div class="vform-row">
+        <div class="vform-field" style="grid-column:1 / -1">
+          <label>Name <em>*</em></label>
+          <div class="vform-name-row">
+            <select name="q5_name[prefix]" required aria-label="Prefix">
+              <option value="">Prefix</option>
+              <option>Mr.</option>
+              <option>Mrs.</option>
+              <option>Miss</option>
+              <option>Dr.</option>
+            </select>
+            <input type="text" name="q5_name[first]" placeholder="First name" required autocomplete="given-name">
+            <input type="text" name="q5_name[last]" placeholder="Last name" required autocomplete="family-name">
+          </div>
+        </div>
+      </div>
+
+      <div class="vform-row">
+        <div class="vform-field">
+          <label for="vf-email">Email <em>*</em></label>
+          <input type="email" id="vf-email" name="q6_email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <div class="vform-field">
+          <label for="vf-phone">Phone Number <em>*</em></label>
+          <input type="tel" id="vf-phone" name="q7_phoneNumber[full]" placeholder="(000) 000-0000" required autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="vform-field">
+        <label for="vf-why">Why do you want to volunteer? Which of the volunteering activities interest you? <em>*</em></label>
+        <textarea id="vf-why" name="q23_whyDo" placeholder="Please provide details." required></textarea>
+      </div>
+
+      <div class="vform-field">
+        <label for="vf-experience">How many years of experience do you have in this field?</label>
+        <input type="text" id="vf-experience" name="q50_howMany">
+      </div>
+
+      <div class="vform-field">
+        <label>How did you hear about Guardian Angels?</label>
+        <div class="vform-days">
+          <label><input type="checkbox" name="q51_howDid[]" value="Social Media"> Social Media</label>
+          <label><input type="checkbox" name="q51_howDid[]" value="Friend/Family Member"> Friend/Family Member</label>
+          <label><input type="checkbox" name="q51_howDid[]" value="Internet Search (e.g., Google)"> Internet Search (e.g., Google)</label>
+          <label><input type="checkbox" name="q51_howDid[]" value="I don&#x27;t remember"> I don&#x27;t remember</label>
+          <label><input type="checkbox" name="q51_howDid[]" value="Billboards"> Billboards</label>
+        </div>
+      </div>
+
+      <div class="vform-field">
+        <label>I am interested in volunteering <em>*</em></label>
+        <div class="vform-radio-row" id="vf-iam">
+          <label><input type="radio" name="q56_iAm" value="at special events only"> at special events only</label>
+          <label><input type="radio" name="q56_iAm" value="on an as needed basis"> on an as needed basis</label>
+          <label><input type="radio" name="q56_iAm" value="scheduled weekly"> scheduled weekly</label>
+          <label><input type="radio" name="q56_iAm" value="other" id="vf-iam-other-radio"> Other:</label>
+          <input type="text" name="q56_iAm[other]" id="vf-iam-other-text" placeholder="Please type another option here" hidden>
+        </div>
+        <p class="vform-error" id="vf-iam-error" hidden>Please choose one option.</p>
+      </div>
+
+      <div class="vform-field">
+        <label>Reason for volunteering: <em>*</em></label>
+        <div class="vform-days" id="vf-reason">
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Humanitarian"> Humanitarian</label>
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Build new skills"> Build new skills</label>
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Make new community connections"> Make new community connections</label>
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Graduation/School Requirement"> Graduation/School Requirement</label>
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Court-Mandated"> Court-Mandated</label>
+          <label><input type="checkbox" name="q52_reasonFor[]" value="Other"> Other</label>
+        </div>
+        <p class="vform-error" id="vf-reason-error" hidden>Please select at least one option.</p>
+      </div>
+
+      <div class="vform-field">
+        <label for="vf-other-interest">Other interest:</label>
+        <input type="text" id="vf-other-interest" name="q53_otherReason">
+      </div>
+
+      <div class="vform-field">
+        <label>Please indicate when you are available to volunteer. Check all that apply. <em>*</em></label>
+        <div class="vform-days" id="vf-avail">
+          <label><input type="checkbox" name="q38_selectYour38[]" value="Weekends"> Weekends</label>
+          <label><input type="checkbox" name="q38_selectYour38[]" value="Weekdays"> Weekdays</label>
+          <label><input type="checkbox" name="q38_selectYour38[]" value="Weekday Mornings"> Weekday Mornings</label>
+          <label><input type="checkbox" name="q38_selectYour38[]" value="Weekday Evenings"> Weekday Evenings</label>
+        </div>
+        <p class="vform-error" id="vf-avail-error" hidden>Please select at least one option.</p>
+      </div>
+
+      <div class="vform-field">
+        <label for="vf-notes">Additional notes about your schedule</label>
+        <textarea id="vf-notes" name="q37_additionalNotes"></textarea>
+      </div>
+
+      <div class="vform-field">
+        <label for="vf-date">Date</label>
+        <input type="date" id="vf-date" style="max-width:220px">
+        <input type="hidden" name="q24_date[month]"><input type="hidden" name="q24_date[day]"><input type="hidden" name="q24_date[year]">
+      </div>
+
+      <hr style="border:0;border-top:1px solid var(--line);margin:34px 0">
+      <div class="vform-field">
+        <label for="vf-crim">Have you ever been arrested or convicted of a crime?</label>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:8px">We ask this to help us understand volunteer suitability and support safe placement. A criminal history does not automatically disqualify you; however, failure to disclose relevant information may affect your volunteer application or placement.</p>
+        <select id="vf-crim" name="q48_haveYou">
+          <option value="">Please Select</option>
+          <option>No, I have not been arrested or convicted of a crime</option>
+          <option>Yes, I have been arrested or convicted of a crime</option>
+        </select>
+      </div>
+
+      <div class="vform-field">
+        <label class="vform-agree">
+          <input type="checkbox" name="q49_iUnderstand[]" value="I understand that I may be asked to complete a background check, provided free of charge." required>
+          <span>I understand that I may be asked to complete a background check, provided free of charge. <em>*</em></span>
+        </label>
+      </div>
+
+      <div class="vform-field">
+        <h3 style="margin-bottom:12px">Waiver</h3>
+        <p style="font-size:14px;color:var(--muted)">As a volunteer, I release and hold harmless Guardian Angels Foundation and their successors from any and all claims, costs, suits, actions, judgments, or expenses upon any damage, loss, or injury to me or to my property that may arise from this volunteer event. I acknowledge that I am fully aware of any and all risks posed by these volunteer activities and that I have no medical condition that prevents me from engaging in them. I also give permission to be photographed by project partners or the media for use in printed materials, on the internet, or through other media outlets.</p>
+        <label class="vform-agree">
+          <input type="checkbox" name="q26_typeA26" value="Accepted" required>
+          <span>I acknowledge that I have read and understand this volunteer agreement. <em>*</em></span>
+        </label>
+      </div>
+
+      <button class="btn btn-gold" type="submit" style="font-size:16px;padding:15px 36px">Submit Application</button>
+    </form>
+    <iframe name="vform-sink" id="vform-sink" title="form submission target" hidden></iframe>
   </div>
 </section>
 
@@ -27,3 +198,61 @@
     <a class="btn btn-gold" href="/contact.html">Contact Us</a>
   </div>
 </section>
+
+<script>
+(function () {
+  var form = document.getElementById('volunteer-form');
+  var sink = document.getElementById('vform-sink');
+  var success = document.getElementById('vform-success');
+  if (!form) return;
+
+  var iamOtherRadio = document.getElementById('vf-iam-other-radio');
+  var iamOtherText = document.getElementById('vf-iam-other-text');
+  document.getElementById('vf-iam').querySelectorAll('input[name="q56_iAm"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      iamOtherText.hidden = !iamOtherRadio.checked;
+    });
+  });
+
+  function fillDate() {
+    var val = document.getElementById('vf-date').value;
+    if (!val) return;
+    var d = val.split('-');
+    form.querySelector('input[name="q24_date[month]"]').value = d[1];
+    form.querySelector('input[name="q24_date[day]"]').value = d[2];
+    form.querySelector('input[name="q24_date[year]"]').value = d[0];
+  }
+
+  var requiredGroups = [
+    ['vf-iam', 'vf-iam-error', 'input[name="q56_iAm"]:checked'],
+    ['vf-reason', 'vf-reason-error', 'input[name="q52_reasonFor[]"]:checked'],
+    ['vf-avail', 'vf-avail-error', 'input[name="q38_selectYour38[]"]:checked']
+  ];
+
+  var submitted = false;
+  form.addEventListener('submit', function (e) {
+    var firstInvalid = null;
+    requiredGroups.forEach(function (g) {
+      var group = document.getElementById(g[0]);
+      var error = document.getElementById(g[1]);
+      var checked = group.querySelectorAll(g[2]).length > 0;
+      error.hidden = checked;
+      if (!checked && !firstInvalid) firstInvalid = error;
+    });
+    if (firstInvalid) {
+      e.preventDefault();
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    fillDate();
+    submitted = true;
+  });
+
+  sink.addEventListener('load', function () {
+    if (!submitted) return;
+    form.hidden = true;
+    success.classList.add('show');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>

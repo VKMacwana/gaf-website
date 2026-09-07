@@ -25,9 +25,19 @@
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/programs.html">Programs</a></li>
-      <li><a href="/get-involved.html">Get Involved</a></li>
+      <li class="nav-item has-dropdown">
+        <a href="/programs.html">Programs</a>
+        <ul class="nav-dropdown">
+          <li><a href="/chicago-midwest-chapter.html">Chicago Chapter</a></li>
+          <li><a href="/india.html">India</a></li>
+        </ul>
+      </li>
+      <li class="nav-item has-dropdown">
+        <a href="/about.html">About</a>
+        <ul class="nav-dropdown">
+          <li><a href="/get-involved.html">Get Involved</a></li>
+        </ul>
+      </li>
       <li><a href="/news.html" aria-current="page">News</a></li>
       <li><a href="/contact.html">Contact</a></li>
       <li><a class="btn btn-gold" href="/give.html">Donate</a></li>
@@ -35,7 +45,7 @@
   </nav>
 </header>
 <main>
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-shared.jpg')">
   <div class="wrap">
     <h1>News &amp; Updates</h1>
     <p>Stay up to date with our activities.</p>
@@ -145,7 +155,8 @@
         <p>A Christ-centered 501(c)(3) nonprofit extending love and care to those in need &mdash; advancing environmental stewardship, empowering women, and enriching education.</p>
         <div class="footer-seals">
           <img src="/assets/seal-charitynav.png" alt="Charity Navigator">
-          <img src="/assets/seal-candid.png" alt="Candid Seal of Transparency">
+          <img src="/assets/seal-candid.png" alt="Candid Bronze Seal of Transparency 2024">
+          <img src="/assets/seal-candid-platinum.png" alt="Candid Platinum Seal of Transparency 2026">
         </div>
       </div>
       <div>

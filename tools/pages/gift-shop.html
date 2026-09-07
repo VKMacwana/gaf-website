@@ -1,4 +1,4 @@
-<div class="page-hero">
+<div class="page-hero" style="background-image:linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%), url('/assets/bg-shared.jpg')">
   <div class="wrap">
     <h1>Gift Shop</h1>
     <p>Every purchase supports our charitable programs. Thank you for your support.</p>
@@ -9,19 +9,17 @@
   <div class="wrap">
     <div class="grid-3">
       <div class="card">
-        <img class="card-img" src="/assets/prog-book.jpg" alt="Purush Ni Parakh — The Measure of a Man in Gujarati">
-        <div class="card-body">
-          <h3>Purush Ni Parakh &mdash; $15</h3>
-          <p><em>The Measure of a Man</em> by Gene A. Getz, the classic bestseller that has inspired men&rsquo;s Bible studies around the world, translated into Gujarati by Rajubhai Christi to reach a new generation of young men in the Gujarati community.</p>
-          <a class="btn btn-blue" href="{{GIFT_BOOK}}" target="_blank" rel="noopener">Order Your Copy Today</a>
+        <div style="display:flex">
+          <img class="card-img" src="/assets/prog-book.jpg" alt="Purush Ni Parakh — The Measure of a Man in Gujarati" style="width:50%">
+          <img class="card-img" src="/assets/book-stree.jpg" alt="Stree Ni Parakh — The Measure of a Woman in Gujarati" style="width:50%;object-fit:contain;background:var(--bg-soft)">
         </div>
-      </div>
-      <div class="card">
-        <img class="card-img" src="/assets/book-stree.jpg" alt="Stree Ni Parakh — The Measure of a Woman in Gujarati" style="object-fit:contain;background:var(--bg-soft)">
         <div class="card-body">
-          <h3>Stree Ni Parakh &mdash; $15</h3>
-          <p><em>The Measure of a Woman</em>, the global bestseller by Gene &amp; Elaine Getz, now available in Gujarati &mdash; translated by Rajubhai &amp; Ritaben Christi. ($10 book + $5 shipping &amp; handling.)</p>
-          <a class="btn btn-blue" href="{{GIFT_BOOK}}" target="_blank" rel="noopener">Purchase Now</a>
+          <h3>Purush ni Parakh &amp; Stree ni Parakh &mdash; $15/Book</h3>
+          <p>&#10024; Now available in Gujarati! &#10024;</p>
+          <p>The global bestseller &ldquo;The Measure of a Woman&rdquo; by Gene &amp; Elaine Getz is now translated as &ldquo;Stree ni Parakh&rdquo;, and &ldquo;The Measure of a Man&rdquo; is translated as &ldquo;Purush ni Parakh&rdquo; by Rajubhai &amp; Ritaben Christi.</p>
+          <p>&#128176; Price: $15 per book ($10 book + $5 S&amp;H)</p>
+          <p>&#128214; About the Books<br>&ldquo;Purush ni Parakh&rdquo; and &ldquo;Stree ni Parakh&rdquo; are timeless guides rooted in Scripture. They highlight that true manhood and womanhood are not defined by strength, wealth, or position&mdash;but by Christ-centered character.</p>
+          <a class="btn btn-blue" href="{{GIFT_BOOK}}" target="_blank" rel="noopener">Order Your Copy Today</a>
         </div>
       </div>
       <div class="card">
@@ -29,6 +27,16 @@
           <h3>T-Shirts &mdash; $20</h3>
           <p>Available in S / M / L / XL. All proceeds from t-shirt sales are used for charity purposes.</p>
           <a class="btn btn-blue" href="mailto:{{EMAIL}}?subject=T-Shirt%20Order">Order by Email</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="/assets/prog-anchor-series.png" alt="The Anchor Series devotional books" style="object-fit:contain;background:var(--bg-soft)">
+        <div class="card-body" style="justify-content:center">
+          <h3>The Anchor Series</h3>
+          <p>A book for you. An opportunity for a student. Signed and personalized &mdash; every copy funds a student. Proceeds support GAF&rsquo;s Student Empowerment Program.</p>
+          <a class="btn btn-blue" href="{{ANCHOR_POINT}}" target="_blank" rel="noopener">($20) Anchor Point &mdash; 365-Day Devotional</a>
+          <a class="btn btn-outline" href="{{ANCHOR_OTHERS}}" target="_blank" rel="noopener">($15) Anchor Start, Deep, Beyond &amp; Life</a>
+          <a class="btn btn-outline" href="{{ANCHOR_FULL_SET}}" target="_blank" rel="noopener">($65) Full Set of 5 Books</a>
         </div>
       </div>
     </div>
