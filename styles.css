@@ -215,6 +215,11 @@ header {
 .quote-card p { font-size: 15.5px; font-style: italic; margin: 8px 0 18px; }
 .quote-card cite { font-style: normal; font-weight: 700; color: var(--ink); }
 
+.page-quote { max-width: 700px; margin: 0 auto; }
+.page-quote .mark { display: block; font-size: 54px; color: var(--gold); line-height: 1; font-weight: 900; }
+.page-quote p { font-size: 26px; font-weight: 700; font-style: italic; color: var(--ink); margin: 6px 0 14px; }
+.page-quote cite { font-style: normal; font-weight: 600; color: var(--blue); }
+
 /* ---------- News ---------- */
 .news-item {
   display: grid; grid-template-columns: 150px 1fr; gap: 26px;
@@ -222,6 +227,10 @@ header {
 }
 .news-item time { color: var(--blue); font-weight: 700; font-size: 15px; }
 .news-item h3 { font-size: 19px; font-weight: 500; color: var(--ink); }
+.news-item img { grid-column: 2; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
+.news-item video { grid-column: 2; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; background: #000; }
+.news-gallery { grid-column: 2; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+.news-gallery img { flex: 1 1 200px; max-width: 224px; margin-top: 0; }
 
 /* ---------- Seals & partners ---------- */
 .seals { display: flex; align-items: center; justify-content: center; gap: 54px; flex-wrap: wrap; }
