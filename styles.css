@@ -135,12 +135,8 @@ header {
   object-fit: cover; opacity: 0; transition: opacity 1.6s ease;
 }
 .hero-slides img.active { opacity: 1; }
-.hero::after {
-  content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(100deg, rgba(4,1,39,.88) 0%, rgba(10,0,141,.62) 55%, rgba(4,1,39,.35) 100%);
-}
 .hero-inner { position: relative; z-index: 2; padding: 110px 0; }
-.hero-eyebrow { color: var(--gold); font-size: 14px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; }
+.hero-eyebrow { display: inline-block; color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; background: rgba(4,1,39,.55); border: 1px solid rgba(255,196,73,.5); border-radius: 999px; padding: 8px 20px; margin-bottom: 6px; }
 .hero h1 { color: #fff; font-size: 74px; font-weight: 900; letter-spacing: .01em; margin: 14px 0 18px; }
 .hero p { max-width: 640px; font-size: 20px; font-weight: 300; color: #dfe3ff; margin-bottom: 34px; }
 .hero .btn + .btn { margin-left: 14px; }
@@ -166,11 +162,12 @@ header {
 .card img.card-img { height: 220px; width: 100%; object-fit: cover; }
 .card-body { padding: 26px 26px 30px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
 .card-body > img { align-self: flex-start; max-width: none; }
-.card-body h3 { font-size: 22px; }
+.card-body h3 { font-size: 22px; color: var(--blue); }
 .card-body p { font-size: 15.5px; color: var(--body); flex: 1; }
 .card-body .btn { align-self: flex-start; padding: 11px 24px; font-size: 14px; }
 
 .pillar { text-align: center; padding: 36px 28px; }
+.pillar h3 { color: var(--blue); }
 .pillar img { height: 84px; margin: 0 auto 18px; }
 
 /* ---------- Mission band ---------- */
@@ -224,7 +221,7 @@ header {
 .card.recent-card { text-decoration: none; transition: transform .15s, box-shadow .15s; }
 .card.recent-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(10,0,141,.14); }
 .recent-card .card-body time { color: var(--blue); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
-.recent-card .card-body h3 { font-size: 18px; font-weight: 500; color: var(--ink); }
+.recent-card .card-body h3 { font-size: 18px; font-weight: 500; color: var(--blue); }
 
 /* ---------- Photo gallery & lightbox ---------- */
 .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
@@ -251,14 +248,14 @@ header {
 
 /* ---------- News ---------- */
 .news-item {
-  display: grid; grid-template-columns: 150px 1fr; gap: 26px;
-  padding: 26px 0; border-bottom: 1px solid var(--line); align-items: baseline;
+  display: flex; flex-direction: column;
+  padding: 26px 0; border-bottom: 1px solid var(--line);
 }
-.news-item time { color: var(--blue); font-weight: 700; font-size: 15px; }
-.news-item h3 { font-size: 19px; font-weight: 500; color: var(--ink); }
-.news-item img { grid-column: 2; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
-.news-item video { grid-column: 2; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; background: #000; }
-.news-gallery { grid-column: 2; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+.news-item h3 { order: 1; font-size: 19px; font-weight: 500; color: var(--blue); }
+.news-item time { order: 2; margin-top: 6px; color: var(--blue); font-weight: 700; font-size: 15px; }
+.news-item img { order: 3; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
+.news-item video { order: 3; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; background: #000; }
+.news-gallery { order: 3; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 .news-gallery img { flex: 1 1 200px; max-width: 224px; margin-top: 0; }
 
 /* ---------- Seals & partners ---------- */
@@ -341,7 +338,6 @@ footer { background: var(--navy); color: #aab0d6; padding: 70px 0 0; font-size: 
   .vform-row { grid-template-columns: 1fr; gap: 0; }
   .vform-name-row { grid-template-columns: 1fr; }
   .page-hero h1 { font-size: 36px; }
-  .news-item { grid-template-columns: 1fr; gap: 4px; }
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -356,4 +352,5 @@ footer { background: var(--navy); color: #aab0d6; padding: 70px 0 0; font-size: 
     margin: 10px 0 0; padding: 0; padding-left: 16px;
   }
   .nav-dropdown a { padding: 8px 0; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }

@@ -100,6 +100,9 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.guardianangels.foundation/{canonical}">
+<meta property="og:image" content="https://www.guardianangels.foundation/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.guardianangels.foundation/assets/og-image.jpg">
 <link rel="canonical" href="https://www.guardianangels.foundation/{canonical}">
 <link rel="icon" href="/assets/favicon-48.png" sizes="48x48">
 <link rel="icon" href="/assets/favicon-512.png" sizes="512x512">
@@ -209,8 +212,8 @@ def recent_activity(slug, href, n=3):
             '      <a class="card recent-card" href="{href}">\n'
             '        <img class="card-img" src="{thumb}" alt="">\n'
             '        <div class="card-body">\n'
-            '          <time>{date}</time>\n'
             '          <h3>{title}</h3>\n'
+            '          <time>{date}</time>\n'
             '        </div>\n'
             '      </a>'.format(href=href, thumb=thumb, date=date, title=title)
         )
