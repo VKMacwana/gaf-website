@@ -62,10 +62,16 @@ PAGES = {
                 "Get in touch with Guardian Angels Foundation — volunteer, donate, partner, or ask for help.", "contact"),
     "chicago-midwest-chapter": ("chicago-midwest-chapter.html", "Chicago-Midwest Chapter — Guardian Angels Foundation",
                 "GAF Chicago Midwest Chapter — serving with compassion, empowering communities, and creating sustainable impact.", "chicago"),
+    "give-chicago": ("give-chicago.html", "Give — Chicago-Midwest Chapter — Guardian Angels Foundation",
+                "Support the GAF Chicago-Midwest Chapter by credit card, Venmo, Zelle, or check.", "chicago"),
     "india": ("india.html", "India — Guardian Angels Foundation",
               "Ongoing programs and initiatives across India, led by our Community Director, Mrs. Foram Christian.", "india"),
     "chicago-member-form": ("chicago-member-form.html", "Chicago-Midwest Chapter Membership Form — Guardian Angels Foundation",
                 "Apply for membership with the Guardian Angels Foundation Chicago Midwest Chapter, or get in touch.", "chicago"),
+    "america250": ("america250.html", "America250 Celebration — Guardian Angels Foundation",
+                   "Guardian Angels Foundation celebrates America's Semiquincentennial — 250 years of the United States, 1776-2026.", "america250"),
+    "canada-chapter": ("canada-chapter.html", "Canada Chapter — Guardian Angels Foundation",
+                "GAF Canada Chapter — extending our mission of faith, compassion, and community service across Canada.", "canada"),
 }
 
 NAV = [
@@ -73,6 +79,8 @@ NAV = [
     ("programs", "/programs.html", "Programs", [
         ("chicago", "/chicago-midwest-chapter.html", "Chicago Chapter"),
         ("india", "/india.html", "India"),
+        ("canada", "/canada-chapter.html", "Canada Chapter"),
+        ("america250", "/america250.html", "America250"),
     ]),
     ("about", "/about.html", "About", [
         ("involved", "/get-involved.html", "Get Involved"),
@@ -178,6 +186,36 @@ FOOT = """</main>
 </html>
 """
 
+def recent_activity(slug, href, n=3):
+    """Pull the first n .news-item entries out of a page's source fragment
+    (entries are already kept newest-first) and render them as card tiles
+    (image + date + title) matching the site's grid-3 card style."""
+    content = (PAGES_DIR / f"{slug}.html").read_text()
+    blocks = re.findall(r'<div class="news-item">\n(.*?)\n {4}</div>', content, re.S)
+    cards = []
+    for block in blocks[:n]:
+        time_m = re.search(r"<time>(.*?)</time>", block, re.S)
+        title_m = re.search(r"<h3>(.*?)</h3>", block, re.S)
+        if not time_m or not title_m:
+            continue
+        date = time_m.group(1).strip()
+        title = re.sub(r"\s+", " ", title_m.group(1)).strip()
+        # strip any nested links (e.g. inline "See full gallery" CTAs) since the
+        # whole card is already a link and nested <a> tags are invalid HTML
+        title = re.sub(r"<a[^>]*>(.*?)</a>", r"\1", title, flags=re.S).strip()
+        img_m = re.search(r'<img src="([^"]+)"', block) or re.search(r'poster="([^"]+)"', block)
+        thumb = img_m.group(1) if img_m else "/assets/icon-heart.png"
+        cards.append(
+            '      <a class="card recent-card" href="{href}">\n'
+            '        <img class="card-img" src="{thumb}" alt="">\n'
+            '        <div class="card-body">\n'
+            '          <time>{date}</time>\n'
+            '          <h3>{title}</h3>\n'
+            '        </div>\n'
+            '      </a>'.format(href=href, thumb=thumb, date=date, title=title)
+        )
+    return "\n".join(cards)
+
 def navlinks(active):
     out = []
     for slug, href, label, children in NAV:
@@ -214,6 +252,10 @@ def main():
         )
         for key, val in LINKS.items():
             html = html.replace("{{" + key + "}}", val)
+        if "{{RECENT_US}}" in html:
+            html = html.replace("{{RECENT_US}}", recent_activity("news", "/news.html"))
+        if "{{RECENT_INDIA}}" in html:
+            html = html.replace("{{RECENT_INDIA}}", recent_activity("india", "/india.html"))
         leftover = re.findall(r"\{\{[A-Z_]+\}\}", html)
         if leftover:
             raise SystemExit(f"{slug}: unresolved placeholders {leftover}")
