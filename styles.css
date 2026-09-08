@@ -213,6 +213,17 @@ header {
 .country-tags { display: flex; gap: 8px; margin-bottom: 10px; }
 .country-tags span { display: inline-block; background: var(--bg-soft); color: var(--muted); border: 1px solid var(--line); font-weight: 700; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; }
 
+.social-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.social-links a {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1.5px solid var(--blue); color: var(--blue); background: transparent;
+  border-radius: 999px; padding: 9px 18px; font-weight: 700; font-size: 14px;
+  transition: background .15s, color .15s;
+}
+.social-links a:hover { background: var(--blue); color: #fff; }
+.social-links a:visited { color: #0a008d; border-color: #0a008d; }
+.social-links a:visited:hover { color: #fff; }
+
 /* ---------- Tiers (sponsorship) ---------- */
 .tier { position: relative; }
 .tier .price { font-size: 30px; font-weight: 900; color: var(--blue); }
