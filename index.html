@@ -383,6 +383,45 @@
     }, 6000);
   }
 })();
+(function () {
+  document.querySelectorAll('.copy-link').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = location.origin + location.pathname + btn.dataset.hash;
+      var flash = function (label) {
+        var original = 'Copy Link';
+        btn.textContent = label;
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1500);
+      };
+      var fallbackCopy = function () {
+        var input = document.createElement('textarea');
+        input.value = url;
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.focus();
+        input.select();
+        try {
+          document.execCommand('copy');
+          flash('Copied!');
+        } catch (e) {
+          flash('Link: ' + url);
+        }
+        document.body.removeChild(input);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          flash('Copied!');
+        }, fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>

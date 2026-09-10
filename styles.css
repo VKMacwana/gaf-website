@@ -207,6 +207,9 @@ header {
 .program-row.flip { grid-template-columns: 1fr 440px; }
 .program-row.flip img { order: 2; }
 .program-row h3 { font-size: 28px; margin-bottom: 12px; }
+.program-row .copy-link { display: block; margin: -8px 0 14px; background: none; border: 0; padding: 0; color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.program-row .copy-link:hover { color: var(--blue); }
+.program-row .copy-link.copied { color: var(--blue); text-decoration: none; }
 .program-row ul { margin: 12px 0 12px 20px; font-size: 15.5px; }
 .program-row .btn { margin-top: 14px; }
 .price-tag { display: inline-block; background: var(--bg-soft); color: var(--blue); border: 1px solid var(--line); font-weight: 700; border-radius: 8px; padding: 5px 14px; font-size: 14.5px; margin: 6px 0; }
@@ -286,6 +289,9 @@ header {
 .news-item video { order: 3; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; background: #000; }
 .news-item video.portrait { max-width: 260px; }
 .news-item .caption { order: 4; margin-top: 10px; max-width: 460px; font-size: 14px; font-style: italic; color: var(--muted); }
+.news-item .copy-link { order: 2; align-self: flex-start; margin-top: 4px; background: none; border: 0; padding: 0; color: var(--muted); font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.news-item .copy-link:hover { color: var(--blue); }
+.news-item .copy-link.copied { color: var(--blue); text-decoration: none; }
 .news-gallery { order: 3; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 .news-gallery img { flex: 1 1 200px; max-width: 224px; margin-top: 0; }
 

@@ -5,9 +5,11 @@ Usage: python3 tools/build.py   (writes final .html files to the repo root)
 Page config lives in PAGES below; donate/action URLs in LINKS.
 """
 import pathlib, re
+from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES_DIR = ROOT / "tools" / "pages"
+ASSETS_DIR = ROOT / "assets"
 
 LINKS = {
     "GIVE_MAIN": "https://secure.myvanco.com/L-ZKFQ/home",
@@ -74,6 +76,20 @@ PAGES = {
                 "GAF Canada Chapter — extending our mission of faith, compassion, and community service across Canada.", "canada"),
 }
 
+# Pages whose social-preview thumbnail should auto-follow whatever photo
+# leads their list, rather than a fixed image (see first_item_image()).
+OG_AUTO_SLUGS = {
+    "news": "news-item",
+    "india": "news-item",
+}
+# Fixed per-page thumbnails for pages excluded from the auto-follow above
+# (e.g. because their first item's own photo is a text-heavy flyer that
+# makes a poor link preview).
+STATIC_OG_IMAGES = {
+    "programs": "/assets/og-image-programs.jpg",
+}
+DEFAULT_OG_IMAGE = "/assets/og-image.jpg"
+
 NAV = [
     ("home", "/", "Home", None),
     ("programs", "/programs.html", "Programs", [
@@ -99,9 +115,9 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.guardianangels.foundation/{canonical}">
-<meta property="og:image" content="https://www.guardianangels.foundation/assets/og-image.jpg">
+<meta property="og:image" content="https://www.guardianangels.foundation{ogimage}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.guardianangels.foundation/assets/og-image.jpg">
+<meta name="twitter:image" content="https://www.guardianangels.foundation{ogimage}">
 <link rel="canonical" href="https://www.guardianangels.foundation/{canonical}">
 <link rel="icon" href="/assets/favicon-48.png" sizes="48x48">
 <link rel="icon" href="/assets/favicon-512.png" sizes="512x512">
@@ -205,10 +221,152 @@ FOOT = """</main>
     }, 6000);
   }
 })();
+(function () {
+  document.querySelectorAll('.copy-link').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = location.origin + location.pathname + btn.dataset.hash;
+      var flash = function (label) {
+        var original = 'Copy Link';
+        btn.textContent = label;
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1500);
+      };
+      var fallbackCopy = function () {
+        var input = document.createElement('textarea');
+        input.value = url;
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.focus();
+        input.select();
+        try {
+          document.execCommand('copy');
+          flash('Copied!');
+        } catch (e) {
+          flash('Link: ' + url);
+        }
+        document.body.removeChild(input);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          flash('Copied!');
+        }, fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
 """
+
+def add_news_anchors(html):
+    """Give every .news-item a stable #anchor id (derived from its date and
+    title) plus a Copy Link button, so a single update can be shared
+    directly instead of only linking to the whole news/india page."""
+    used = set()
+
+    def slugify(text):
+        text = re.sub(r"<[^>]+>", "", text)
+        text = re.sub(r"[^a-zA-Z0-9]+", "-", text).strip("-").lower()
+        return text
+
+    def repl(m):
+        block = m.group(1)
+        time_m = re.search(r"<time>(.*?)</time>", block, re.S)
+        title_m = re.search(r"<h3>(.*?)</h3>", block, re.S)
+        date_slug = slugify(time_m.group(1)) if time_m else ""
+        title_text = re.sub(r"<[^>]+>", "", title_m.group(1)) if title_m else ""
+        title_text = re.sub(r"&[a-zA-Z]+;", " ", title_text)
+        words = re.findall(r"[A-Za-z0-9]+", title_text)[:6]
+        title_slug = "-".join(w.lower() for w in words)
+        base = "-".join(filter(None, [date_slug, title_slug])) or "update"
+        anchor, n = base, 2
+        while anchor in used:
+            anchor = f"{base}-{n}"
+            n += 1
+        used.add(anchor)
+
+        new_block = block.replace(
+            "</time>",
+            '</time>\n      <button class="copy-link" type="button" data-hash="#{0}">Copy Link</button>'.format(anchor),
+            1,
+        )
+        return '<div class="news-item" id="{0}">\n{1}\n    </div>'.format(anchor, new_block)
+
+    return re.sub(r'<div class="news-item">\n(.*?)\n {4}</div>', repl, html, flags=re.S)
+
+def add_program_copy_links(html):
+    """Add a Copy Link button after each program's title, reusing the
+    program-row's existing id so one program can be shared directly."""
+    def repl(m):
+        row_id, block = m.group(1), m.group(2)
+        new_block = re.sub(
+            r"(<h3>.*?</h3>)",
+            r'\1\n        <button class="copy-link" type="button" data-hash="#{0}">Copy Link</button>'.format(row_id),
+            block,
+            count=1,
+            flags=re.S,
+        )
+        return m.group(0).replace(block, new_block)
+
+    return re.sub(
+        r'<div class="program-row[^"]*" id="([a-z0-9-]+)">\n(.*?)\n {4}</div>',
+        repl,
+        html,
+        flags=re.S,
+    )
+
+def first_item_image(slug, item_class):
+    """Return the image (or video poster) used by the first entry of a
+    given item class ('news-item' or 'program-row') in a page's source,
+    so the page's social-preview thumbnail can auto-follow whatever leads
+    that list instead of a hand-picked photo that can go stale."""
+    content = (PAGES_DIR / f"{slug}.html").read_text()
+    blocks = re.findall(
+        r'<div class="{0}[^"]*"[^>]*>\n(.*?)\n {{4}}</div>'.format(re.escape(item_class)),
+        content, re.S,
+    )
+    if not blocks:
+        return None
+    img_m = re.search(r'<img src="([^"]+)"', blocks[0]) or re.search(r'poster="([^"]+)"', blocks[0])
+    return img_m.group(1) if img_m else None
+
+def make_og_image(src_rel, dst_rel, size=(1200, 630)):
+    """Center-crop src_rel (an /assets/... path) to the social-preview
+    aspect ratio and write it to dst_rel, so auto-selected photos never
+    get awkwardly cropped by the platforms that render link previews."""
+    src = ROOT / src_rel.lstrip("/")
+    dst = ROOT / dst_rel.lstrip("/")
+    im = Image.open(src).convert("RGB")
+    target_ratio = size[0] / size[1]
+    w, h = im.size
+    if w / h > target_ratio:
+        new_w = int(h * target_ratio)
+        im = im.crop(((w - new_w) // 2, 0, (w - new_w) // 2 + new_w, h))
+    else:
+        new_h = int(w / target_ratio)
+        im = im.crop((0, (h - new_h) // 2, w, (h - new_h) // 2 + new_h))
+    im = im.resize(size, Image.LANCZOS)
+    im.save(dst, quality=88, optimize=True)
+
+def og_image_for(slug):
+    if slug in STATIC_OG_IMAGES:
+        return STATIC_OG_IMAGES[slug]
+    item_class = OG_AUTO_SLUGS.get(slug)
+    if not item_class:
+        return DEFAULT_OG_IMAGE
+    src = first_item_image(slug, item_class)
+    if not src:
+        return DEFAULT_OG_IMAGE
+    dst = f"/assets/og-image-{slug}.jpg"
+    make_og_image(src, dst)
+    return dst
 
 def recent_activity(slug, href, n=3):
     """Pull the first n .news-item entries out of a page's source fragment
@@ -270,7 +428,8 @@ def main():
         body = (PAGES_DIR / f"{slug}.html").read_text()
         canonical = "" if outfile == "index.html" else outfile
         html = (
-            HEAD.format(title=title, desc=desc, canonical=canonical, navlinks=navlinks(active))
+            HEAD.format(title=title, desc=desc, canonical=canonical, navlinks=navlinks(active),
+                        ogimage=og_image_for(slug))
             + body
             + FOOT
         )
@@ -280,6 +439,8 @@ def main():
             html = html.replace("{{RECENT_US}}", recent_activity("news", "/news.html"))
         if "{{RECENT_INDIA}}" in html:
             html = html.replace("{{RECENT_INDIA}}", recent_activity("india", "/india.html"))
+        html = add_news_anchors(html)
+        html = add_program_copy_links(html)
         leftover = re.findall(r"\{\{[A-Z_]+\}\}", html)
         if leftover:
             raise SystemExit(f"{slug}: unresolved placeholders {leftover}")
