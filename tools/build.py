@@ -79,7 +79,6 @@ NAV = [
     ("programs", "/programs.html", "Programs", [
         ("chicago", "/chicago-midwest-chapter.html", "Chicago Chapter"),
         ("india", "/india.html", "India"),
-        ("canada", "/canada-chapter.html", "Canada Chapter"),
         ("america250", "/america250.html", "America250"),
     ]),
     ("about", "/about.html", "About", [
