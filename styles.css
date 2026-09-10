@@ -284,6 +284,8 @@ header {
 .news-item time { order: 2; margin-top: 6px; color: var(--blue); font-weight: 700; font-size: 15px; }
 .news-item img { order: 3; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
 .news-item video { order: 3; margin-top: 14px; width: 100%; max-width: 460px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; background: #000; }
+.news-item video.portrait { max-width: 260px; }
+.news-item .caption { order: 4; margin-top: 10px; max-width: 460px; font-size: 14px; font-style: italic; color: var(--muted); }
 .news-gallery { order: 3; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 .news-gallery img { flex: 1 1 200px; max-width: 224px; margin-top: 0; }
 
