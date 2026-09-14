@@ -1,5 +1,17 @@
 {
   "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "volunteer.guardianangels.foundation" }],
+      "destination": "https://guardianangels.foundation/volunteer.html",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "volunteer.guardianangels.foundation" }],
+      "destination": "https://guardianangels.foundation/volunteer.html",
+      "permanent": true
+    },
     { "source": "/home.html", "destination": "/", "permanent": true },
     { "source": "/about1.html", "destination": "/about.html", "permanent": true },
     { "source": "/our-mission.html", "destination": "/about.html", "permanent": true },

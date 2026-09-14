@@ -97,10 +97,11 @@ header {
 }
 .nav-logo img { height: 52px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
-.nav-links a {
+.nav-links a, .nav-trigger {
   color: #e6e8ff; font-size: 15px; font-weight: 500; letter-spacing: 0.03em;
   white-space: nowrap;
 }
+.nav-trigger { cursor: default; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: #fff; }
 .nav-links a[aria-current="page"] { border-bottom: 2px solid var(--gold); padding-bottom: 3px; }
 .nav-links .btn { padding: 10px 24px; }
@@ -116,8 +117,8 @@ header {
 .nav-toggle { display: none; background: none; border: 0; color: #fff; font-size: 30px; line-height: 1; }
 
 .nav-item { position: relative; }
-.nav-item.has-dropdown > a::after { content: " \25be"; font-size: 11px; }
-.nav-item.current-section > a { border-bottom: 2px solid var(--gold); padding-bottom: 3px; }
+.nav-item.has-dropdown > a::after, .nav-item.has-dropdown > .nav-trigger::after { content: " \25be"; font-size: 11px; }
+.nav-item.current-section > a, .nav-item.current-section > .nav-trigger { border-bottom: 2px solid var(--gold); padding-bottom: 3px; }
 .nav-dropdown {
   display: none; position: absolute; top: 100%; left: 0; margin-top: 14px;
   background: var(--blue-deep); min-width: 200px; padding: 10px 0;
@@ -293,7 +294,7 @@ header {
 .news-item .copy-link:hover { color: var(--blue); }
 .news-item .copy-link.copied { color: var(--blue); text-decoration: none; }
 .news-gallery { order: 3; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
-.news-gallery img { flex: 1 1 200px; max-width: 224px; margin-top: 0; }
+.news-gallery img { flex: 1 1 200px; max-width: 224px; height: 180px; object-fit: cover; margin-top: 0; }
 
 /* ---------- Seals & partners ---------- */
 .seals { display: flex; align-items: center; justify-content: center; gap: 54px; flex-wrap: wrap; }
@@ -392,7 +393,7 @@ footer { background: var(--navy); color: #aab0d6; padding: 48px 0 0; font-size: 
   }
   .nav-links.open { display: flex; }
   .nav-item { width: 100%; }
-  .nav-item.has-dropdown > a::after { content: ""; }
+  .nav-item.has-dropdown > a::after, .nav-item.has-dropdown > .nav-trigger::after { content: ""; }
   .nav-dropdown {
     display: block; position: static; background: none; box-shadow: none;
     margin: 10px 0 0; padding: 0; padding-left: 16px;

@@ -87,20 +87,26 @@ OG_AUTO_SLUGS = {
 # makes a poor link preview).
 STATIC_OG_IMAGES = {
     "programs": "/assets/og-image-programs.jpg",
+    "chicago-midwest-chapter": "/assets/og-image-chicago.jpg",
+    "america250": "/assets/og-image-america250.jpg",
 }
 DEFAULT_OG_IMAGE = "/assets/og-image.jpg"
 
 NAV = [
     ("home", "/", "Home", None),
-    ("programs", "/programs.html", "Programs", [
+    ("programs", None, "Programs", [
+        ("programs", "/programs.html", "All Programs"),
         ("chicago", "/chicago-midwest-chapter.html", "Chicago Chapter"),
-        ("india", "/india.html", "India"),
         ("america250", "/america250.html", "America250"),
     ]),
-    ("about", "/about.html", "About", [
+    ("about", None, "About", [
+        ("about", "/about.html#mission", "Our Mission"),
         ("involved", "/get-involved.html", "Get Involved"),
     ]),
-    ("news", "/news.html", "News", None),
+    ("news", None, "News", [
+        ("news", "/news.html", "US Updates"),
+        ("india", "/india.html", "India Updates"),
+    ]),
     ("contact", "/contact.html", "Contact", None),
 ]
 
@@ -410,9 +416,10 @@ def navlinks(active):
                 ccur = ' aria-current="page"' if active == cslug else ""
                 child_items.append(f'          <li><a href="{chref}"{ccur}>{clabel}</a></li>')
             child_html = "\n".join(child_items)
+            trigger = f'<a href="{href}">{label}</a>' if href else f'<span class="nav-trigger">{label}</span>'
             out.append(
                 f'      <li class="{classes}">\n'
-                f'        <a href="{href}">{label}</a>\n'
+                f'        {trigger}\n'
                 f'        <ul class="nav-dropdown">\n'
                 f'{child_html}\n'
                 f'        </ul>\n'
