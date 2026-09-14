@@ -107,6 +107,7 @@ NAV = [
         ("news", "/news.html", "US Updates"),
         ("india", "/india.html", "India Updates"),
     ]),
+    ("volunteer", "/volunteer.html", "Volunteer", None),
     ("contact", "/contact.html", "Contact", None),
 ]
 
