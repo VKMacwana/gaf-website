@@ -325,6 +325,7 @@ header {
 .vform-radio-row input[type="text"] { width: auto; flex: 1; min-width: 160px; }
 .vform-phone-row { display: flex; gap: 12px; }
 .vform-name-row { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 12px; }
+.vform-csz-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; }
 .vform input[type="text"], .vform input[type="email"], .vform input[type="tel"],
 .vform input[type="time"], .vform input[type="date"], .vform select, .vform textarea {
   font: inherit; font-size: 16px; width: 100%; padding: 14px 16px; border: 1.5px solid var(--line);
