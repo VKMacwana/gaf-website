@@ -30,8 +30,14 @@
 
     <p class="vform-success" id="vform-success">Thank you &mdash; your volunteer application has been submitted. We&rsquo;ll be in touch soon!</p>
 
-    <form class="vform" id="volunteer-form" method="post" target="vform-sink" novalidate
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfOmdagGFOTRs2nYkjXCNZVe-MWfKx43uto6eaGOuy7DcGeZQ/formResponse">
+    <p class="vform-fail" id="vform-fail" hidden>Sorry &mdash; your application could not be sent. Please try again, or email us at <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+
+    <form class="vform" id="volunteer-form" method="post" action="/api/volunteer" novalidate>
+      <div class="vform-hp" aria-hidden="true">
+        <label for="vf-website">Website</label>
+        <input type="text" id="vf-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="form_started" id="vf-started">
 
       <div class="vform-row">
         <div class="vform-field" style="grid-column:1 / -1">
@@ -208,9 +214,12 @@
         </div>
       </div>
 
+      <div class="cf-turnstile" data-sitekey="{{TURNSTILE_SITE_KEY}}" style="margin:8px 0 18px"></div>
+      <p class="vform-error" id="vf-captcha-error" hidden>Please complete the verification above.</p>
+
       <button class="btn btn-gold vform-submit" type="submit">Submit Application</button>
     </form>
-    <iframe name="vform-sink" id="vform-sink" title="form submission target" hidden></iframe>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </div>
 </section>
 
@@ -225,9 +234,19 @@
 <script>
 (function () {
   var form = document.getElementById('volunteer-form');
-  var sink = document.getElementById('vform-sink');
   var success = document.getElementById('vform-success');
+  var fail = document.getElementById('vform-fail');
   if (!form) return;
+
+  document.getElementById('vf-started').value = String(Date.now());
+
+  var query = new URLSearchParams(location.search);
+  if (query.get('submitted')) {
+    form.hidden = true;
+    success.classList.add('show');
+  } else if (query.get('error')) {
+    fail.hidden = false;
+  }
 
   var iamOtherRadio = document.getElementById('vf-iam-other-radio');
   var iamOtherText = document.getElementById('vf-iam-other-text');
@@ -258,8 +277,14 @@
     ['vf-reason', 'vf-reason-error', 'input[name="entry.790494099"]:checked']
   ];
 
-  var submitted = false;
+  var submitBtn = form.querySelector('.vform-submit');
+  var captchaError = document.getElementById('vf-captcha-error');
+  var sending = false;
+
   form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) return;
+
     var firstInvalid = null;
     requiredGroups.forEach(function (g) {
       var group = document.getElementById(g[0]);
@@ -268,20 +293,41 @@
       error.hidden = checked;
       if (!checked && !firstInvalid) firstInvalid = error;
     });
+    var tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
+    var hasToken = !!(tokenInput && tokenInput.value);
+    captchaError.hidden = hasToken;
+    if (!hasToken && !firstInvalid) firstInvalid = captchaError;
     if (firstInvalid) {
-      e.preventDefault();
       firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
-    fillDate();
-    submitted = true;
-  });
 
-  sink.addEventListener('load', function () {
-    if (!submitted) return;
-    form.hidden = true;
-    success.classList.add('show');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    fillDate();
+    sending = true;
+    fail.hidden = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(new FormData(form))
+    })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (data) {
+        if (!data.ok) throw new Error(data.error || 'failed');
+        form.hidden = true;
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        fail.hidden = false;
+        fail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (window.turnstile) window.turnstile.reset();
+        sending = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      });
   });
 })();
 </script>

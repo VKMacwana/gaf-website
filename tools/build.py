@@ -33,6 +33,7 @@ LINKS = {
     "SUPPORT_STUDENT": "https://secure.myvanco.com/L-ZKFQ/campaign/C-166W8",
     "ICSANA": "https://icsana.org/",
     "CHICAGO_DONATE": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16JAH",
+    "TURNSTILE_SITE_KEY": "1x00000000000000000000AA",
     "EMAIL": "help@guardianangels.foundation",
     "PHONE_TEL": "+12155563604",
     "PHONE_FMT": "+1 (215) 556-3604",

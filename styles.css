@@ -352,6 +352,13 @@ header {
   border-radius: var(--radius); padding: 20px 24px; font-weight: 600; margin-bottom: 30px; text-align: center;
 }
 .vform-success.show { display: block; }
+.vform-fail {
+  background: #fdecec; border: 1px solid #f3b9b9; color: #8a1f1f;
+  border-radius: var(--radius); padding: 20px 24px; font-weight: 600; margin-bottom: 30px; text-align: center;
+}
+.vform-fail[hidden] { display: none; }
+.vform-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.vform-submit:disabled { opacity: .6; cursor: default; transform: none; }
 
 /* ---------- CTA band ---------- */
 .cta-band { background: linear-gradient(115deg, var(--blue) 0%, var(--blue-bright) 100%); color: #fff; text-align: center; }
