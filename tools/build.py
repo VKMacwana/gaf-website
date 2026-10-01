@@ -64,9 +64,9 @@ PAGES = {
     "contact": ("contact.html", "Contact Us — Guardian Angels Foundation",
                 "Get in touch with Guardian Angels Foundation — volunteer, donate, partner, or ask for help.", "contact"),
     "chicago-midwest-chapter": ("chicago-midwest-chapter.html", "Chicago-Midwest Chapter — Guardian Angels Foundation",
-                "GAF Chicago Midwest Chapter — serving with compassion, empowering communities, and creating sustainable impact.", "chicago"),
+                "Guardian Angels Chicago Midwest Chapter — serving with compassion, empowering communities, and creating sustainable impact.", "chicago"),
     "give-chicago": ("give-chicago.html", "Give — Chicago-Midwest Chapter — Guardian Angels Foundation",
-                "Support the GAF Chicago-Midwest Chapter by credit card, Venmo, Zelle, or check.", "chicago"),
+                "Support the Guardian Angels Chicago-Midwest Chapter by credit card, Venmo, Zelle, or check.", "chicago"),
     "india": ("india.html", "India — Guardian Angels Foundation",
               "Ongoing programs and initiatives across India, led by our Community Director, Mrs. Foram Christian.", "india"),
     "chicago-member-form": ("chicago-member-form.html", "Chicago-Midwest Chapter Membership Form — Guardian Angels Foundation",
@@ -74,7 +74,7 @@ PAGES = {
     "america250": ("america250.html", "America250 Celebration — Guardian Angels Foundation",
                    "Guardian Angels Foundation celebrates America's Semiquincentennial — 250 years of the United States, 1776-2026.", "america250"),
     "canada-chapter": ("canada-chapter.html", "Canada Chapter — Guardian Angels Foundation",
-                "GAF Canada Chapter — extending our mission of faith, compassion, and community service across Canada.", "canada"),
+                "Guardian Angels Canada Chapter — extending our mission of faith, compassion, and community service across Canada.", "canada"),
 }
 
 # Pages whose social-preview thumbnail should auto-follow whatever photo
