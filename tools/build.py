@@ -16,6 +16,7 @@ LINKS = {
     "GIVE_KIT": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXM",
     "GIVE_CHILD": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXC",
     "GIVE_TREE": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14QKR",
+    "GIVE_WIDOWS_ORPHANS": "https://secure.myvanco.com/L-ZKFQ/campaign/C-16M45",
     "GIVE_REFUGEE_EMERGENCY": "https://secure.myvanco.com/L-ZKFQ/campaign/C-14MXB",
     "GIVE_STUDENT": "https://secure.myvanco.com/L-ZKFQ/home",
     "GIFT_BOOK": "https://secure.myvanco.com/L-ZKFQ/home",
