@@ -295,6 +295,9 @@ header {
 .news-item .copy-link.copied { color: var(--blue); text-decoration: none; }
 .news-gallery { order: 3; display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
 .news-gallery img { flex: 1 1 200px; max-width: 224px; height: 180px; object-fit: cover; margin-top: 0; }
+/* Certificates and letters: show the whole page, never crop */
+.news-gallery.docs a { flex: 0 1 200px; display: block; }
+.news-gallery.docs img { max-width: 100%; height: auto; }
 
 /* ---------- Seals & partners ---------- */
 .seals { display: flex; align-items: center; justify-content: center; gap: 54px; flex-wrap: wrap; }
